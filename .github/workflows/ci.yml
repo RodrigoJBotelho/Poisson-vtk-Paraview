@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compilar o solver
+        run: make
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias Python
+        run: pip install numpy matplotlib
+
+      - name: Rodar os testes
+        run: python3 tests/testar.py
+
+      - name: Gerar figuras do pos-processamento
+        run: |
+          ./poisson --dim 3 --n 33 --caso seno --saida saida
+          python3 scripts/posprocessar.py saida/solucao.vti --destino figuras
+
+      - name: Guardar figuras e arquivos VTK
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados
+          path: |
+            figuras/
+            saida/solucao.vti
