@@ -1,0 +1,8 @@
+Relatorio de pos-processamento
+arquivo: exemplos/gauss2d_n65/solucao.vti
+grade: 65 x 65 x 1  (h = 0.015625)
+u_min = 0   u_max = 1.18571
+|grad u|_max = 3.60932
+iteracoes = 276
+residuo_relativo = 9.937167022e-10
+omega = 1.906454702

@@ -1,0 +1,11 @@
+caso=seno
+dim=3
+n=25
+h=0.04166666667
+omega=1.769087717
+iteracoes=102
+residuo_relativo=9.617687079e-10
+u_min=0
+u_max=1.001429118
+erro_L2=0.0005052696033
+erro_Linf=0.001429118247
